@@ -26,7 +26,7 @@ export default function FlickeringGridRoundedDemo() {
       </div>
 
       <HeroHighlight containerClassName="h-full">
-        <div className="grid relative w-full gap-10">
+        <div className="grid">
           <FadeInSection>
             <div id="about">
               <About />

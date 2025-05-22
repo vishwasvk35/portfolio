@@ -18,7 +18,7 @@ const Hero = () => {
           
           <GradientText />
                     <p className="text-6xl text-white font-primary mb-4">
-            Software Engineer
+            Web Developer
           </p>
           <p className="text-xl text-white md:text-4xl font-secondary">
             Crafting seamless digital experiences, from pixel to scalable
