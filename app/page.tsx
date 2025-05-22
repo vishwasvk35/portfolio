@@ -17,7 +17,7 @@ const navItems = [
   { name: "Contact", link: "#contact" },
 ];
 
-export default function Page() {
+export default function FlickeringGridRoundedDemo() {
   return (
     <div>
       <FloatingNav navItems={navItems} />
@@ -26,7 +26,7 @@ export default function Page() {
       </div>
 
       <HeroHighlight containerClassName="h-full">
-        <div className="grid relative w-full">
+        <div className="grid relative w-full gap-10">
           <FadeInSection>
             <div id="about">
               <About />

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
@@ -14,7 +14,7 @@ export const ProjectCards = () => {
       imageUrl: "/codesaathi.png",
       githubUrl: "https://github.com/vishwasvk35/CodeSync",
       deployment: "https://codesarthi.onrender.com/",
-      skills: ["React", "Node.js", "MongoDB", "WebSocket"]
+      skills: ["React", "Node.js", "MongoDB", "WebSocket"],
     },
     {
       title: "Weather Web App",
@@ -22,16 +22,17 @@ export const ProjectCards = () => {
         "A simple weather web app that provides real-time weather updates and forecasts. Built with React, this app fetches data from a weather API and displays it in a user-friendly interface. Users can search for any location to get current weather conditions",
       imageUrl: "/weatherWebapp.png",
       githubUrl: "https://github.com/vishwasvk35/WeatherWebapp",
-      deployment: null,
-      skills: ["React", "JavaScript", "API", "CSS"]
+      deployment: undefined,
+      skills: ["React", "JavaScript", "API", "CSS"],
     },
     {
       title: "Recipe Finder",
-      description: "Recipe Finder is a comprehensive platform for food enthusiasts to explore, manage, and share their favorite recipes. This application showcases the power of modern web development by integrating a responsive frontend, robust backend, and efficient database management",
+      description:
+        "Recipe Finder is a comprehensive platform for food enthusiasts to explore, manage, and share their favorite recipes. This application showcases the power of modern web development by integrating a responsive frontend, robust backend, and efficient database management",
       imageUrl: "/RecipeFinder.png",
       githubUrl: "https://github.com/vishwasvk35/recipe_app",
-      deployment: null,
-      skills: ["React", "Node.js", "Express", "MongoDB"]
+      deployment: undefined,
+      skills: ["React", "Node.js", "Express", "MongoDB"],
     },
   ];
 
@@ -51,24 +52,38 @@ export const ProjectCards = () => {
   );
 };
 
-const ProjectCard = ({ title, description, imageUrl, githubUrl, deployment, skills }) => {
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  imageUrl: string;
+  githubUrl: string;
+  deployment?: string; // Optional prop, hence the '?'
+  skills: string[]; // An array of strings
+}
+
+const ProjectCard = ({
+  title,
+  description,
+  imageUrl,
+  githubUrl,
+  deployment,
+  skills,
+}: ProjectCardProps) => {
   return (
     <CardContainer className="inter-var">
       <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-zinc-900 dark:border-zinc-700 border-black/[0.1] w-full min-h-[34rem] rounded-xl p-5 border flex flex-col gap-5">
         <div className="space-y-3">
           <CardItem
-            as="p"
             translateZ="50"
             className="text-lg font-primary text-neutral-600 dark:text-white"
           >
-            {title}
+            <p>{title}</p>
           </CardItem>
           <CardItem
-            as="p"
             translateZ="60"
             className="text-neutral-500 font-secondary text-md max-w-sm dark:text-neutral-300 min-h-[10rem]"
           >
-            {description}
+            <p>{description}</p>
           </CardItem>
         </div>
 
@@ -94,24 +109,22 @@ const ProjectCard = ({ title, description, imageUrl, githubUrl, deployment, skil
         </CardItem>
 
         <div className="flex justify-between items-center mt-auto">
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="px-3 py-1.5 rounded-xl font-secondary bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-          >
-            <Link href={githubUrl} target="_blank">
-              Github
-            </Link>
+          <CardItem translateZ={20}>
+            <button className="px-3 py-1.5 rounded-xl font-secondary bg-black dark:bg-white dark:text-black text-white text-xs font-bold">
+              <Link href={githubUrl} target="_blank">
+                Github
+              </Link>
+            </button>
           </CardItem>
           {deployment ? (
-            <CardItem
-              translateZ={20}
-              as="a"
-              href={deployment}
-              target="_blank"
-              className="px-3 py-1.5 rounded-xl font-secondary dark:bg-indigo-800 text-xs font-normal dark:text-white"
-            >
-              Try Now
+            <CardItem translateZ={20}>
+              <a
+                href={deployment}
+                target="_blank"
+                className="px-3 py-1.5 rounded-xl font-secondary dark:bg-indigo-800 text-xs font-normal dark:text-white"
+              >
+                Try Now
+              </a>
             </CardItem>
           ) : null}
         </div>

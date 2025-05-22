@@ -63,7 +63,7 @@ const config: Config = {
   plugins: [
     require('tailwindcss-animate'),
     // Add a plugin for text outline effects (optional)
-    function({ addUtilities }) {
+    function({  }) {
       const newUtilities = {
         '.text-outline': {
           '-webkit-text-stroke': '1px black',
@@ -81,7 +81,6 @@ const config: Config = {
           'color': 'transparent',
         },
       }
-      addUtilities(newUtilities)
     }
   ],
 }

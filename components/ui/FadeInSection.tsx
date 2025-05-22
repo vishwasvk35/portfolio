@@ -21,4 +21,4 @@ export const FadeInSection = ({ children, className = '' }: FadeInSectionProps) 
       {children}
     </div>
   );
-}; 
+};

@@ -1,11 +1,19 @@
 "use client"
 
 import { motion, useMotionValue, useTransform } from "framer-motion"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, CSSProperties } from "react"
+
+interface ElementDimensions {
+    width: number;
+    height: number;
+    top: number;
+    left: number;
+}
 
 export default function GradientText() {
-    const ref = useRef(null)
-    const [{ width, height, top, left }, measure] = useElementDimensions(ref)
+    const ref = useRef<HTMLParagraphElement>(null)
+    const [dimensions, measure] = useElementDimensions(ref)
+    const { width, height, top, left } = dimensions
     const gradientX = useMotionValue(0.5)
     const gradientY = useMotionValue(0.5)
     const textGradient = useTransform(
@@ -20,7 +28,7 @@ export default function GradientText() {
     return (
         <div
             className="relative inline-flex items-center justify-center w-fit p-5"
-            onPointerMove={(e) => {
+            onPointerMove={(e: React.PointerEvent) => {
                 gradientX.set(e.clientX / width)
                 gradientY.set(e.clientY / height)
             }}
@@ -33,7 +41,6 @@ export default function GradientText() {
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     WebkitTextFillColor: "transparent",
-                    textFillColor: "transparent",
                     color: "transparent",
                 }}
                 className="font-primary text-9xl cursor-default m-0"
@@ -44,12 +51,11 @@ export default function GradientText() {
     )
 }
 
-function useElementDimensions(ref) {
-    const [size, setSize] = useState({ width: 0, height: 0, top: 0, left: 0 })
+function useElementDimensions<T extends HTMLElement = HTMLElement>(ref: React.RefObject<T | null>): [ElementDimensions, () => void] {
+    const [size, setSize] = useState<ElementDimensions>({ width: 0, height: 0, top: 0, left: 0 })
 
     function measure() {
         if (!ref.current) return
-
         setSize(ref.current.getBoundingClientRect())
     }
 
