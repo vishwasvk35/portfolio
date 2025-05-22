@@ -5,6 +5,9 @@ import "@/app/globals.css";
 export const metadata: Metadata = {
   title: "Vishwas Kulkarni",
   description: "Next.js app with particles",
+  icons: {
+    icon: `/favicon.ico`,
+  }
 };
 
 export default function RootLayout({

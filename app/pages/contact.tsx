@@ -1,5 +1,3 @@
-
-
 'use client'
 
 import { useState } from 'react';
@@ -93,7 +91,7 @@ export default function ContactForm() {
           </form>
           
           <p className="text-xs text-center text-gray-500 mt-4">
-            You'll be redirected to Gmail to send your message
+            You&apos;ll be redirected to Gmail to send your message
           </p>
         </div>
       </div>

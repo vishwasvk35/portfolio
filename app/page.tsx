@@ -17,7 +17,7 @@ const navItems = [
   { name: "Contact", link: "#contact" },
 ];
 
-export default function FlickeringGridRoundedDemo() {
+export default function Page() {
   return (
     <div>
       <FloatingNav navItems={navItems} />
@@ -25,36 +25,33 @@ export default function FlickeringGridRoundedDemo() {
         <Hero />
       </div>
 
-      <HeroHighlight
-        containerClassName="min-h-[186rem]"
-        children={
-          <div className="grid relative w-full h-screen gap-10">
-            <FadeInSection>
-              <div id="about">
-                <About />
-              </div>
-            </FadeInSection>
+      <HeroHighlight containerClassName="h-full">
+        <div className="grid relative w-full">
+          <FadeInSection>
+            <div id="about">
+              <About />
+            </div>
+          </FadeInSection>
 
-            <FadeInSection>
-              <div id="skills">
-                <Skills />
-              </div>
-            </FadeInSection>
+          <FadeInSection>
+            <div id="skills">
+              <Skills />
+            </div>
+          </FadeInSection>
 
-            <FadeInSection>
-              <div id="projects">
-                <ProjectCards />
-              </div>
-            </FadeInSection>
+          <FadeInSection>
+            <div id="projects">
+              <ProjectCards />
+            </div>
+          </FadeInSection>
 
-            <FadeInSection>
-              <div id="contact">
-                <ContactForm />
-              </div>
-            </FadeInSection>
-          </div>
-        }
-      />
+          <FadeInSection>
+            <div id="contact">
+              <ContactForm />
+            </div>
+          </FadeInSection>
+        </div>
+      </HeroHighlight>
     </div>
   );
 }

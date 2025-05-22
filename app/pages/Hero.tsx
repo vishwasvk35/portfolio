@@ -5,7 +5,6 @@ import FallingLightDrops from "@/components/ui/hero-background";
 import GradientText from "@/components/ui/gradient-text";
 import { RainbowButton } from "@/components/magicui/rainbow-button";
 import { FadeInSection } from "../../components/ui/FadeInSection";
-import Link from "next/link";
 
 const Hero = () => {
   return (
